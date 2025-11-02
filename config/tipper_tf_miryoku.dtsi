@@ -56,5 +56,5 @@ MIRYOKU_LAYER_LIST
   #include "../miryoku/miryoku_behaviors.dtsi"
 #endif
 
-// Custom user combos
-#include "../miryoku/custom_combos.dtsi"
+// Custom user combos - temporarily disabled for debugging
+// #include "../miryoku/custom_combos.dtsi"
