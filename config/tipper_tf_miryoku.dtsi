@@ -34,9 +34,9 @@ MIRYOKU_LAYER_LIST
   };
 };
 
-#include "../miryoku/miryoku_shift_functions.dtsi"
-
-#include "../miryoku/miryoku_double_tap_guard.dtsi"
+// Use Tipper TF compatible versions with 'label' property for old ZMK
+#include "tipper_tf_shift_functions.dtsi"
+#include "tipper_tf_double_tap_guard.dtsi"
 
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
   #include "../miryoku/miryoku_kludge_thumbcombos.dtsi"
@@ -53,7 +53,8 @@ MIRYOKU_LAYER_LIST
 #if defined (MIRYOKU_KLUDGE_TAPDELAY)
   #include "../miryoku/miryoku_kludge_tapdelay.dtsi"
 #else
-  #include "../miryoku/miryoku_behaviors.dtsi"
+  // Use Tipper TF compatible version with 'label' property for old ZMK
+  #include "tipper_tf_behaviors.dtsi"
 #endif
 
 // Custom user combos
