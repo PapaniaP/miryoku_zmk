@@ -17,6 +17,10 @@
 // Mouse bindings removed - old ZMK fork doesn't have this file
 // #include <dt-bindings/zmk/mouse.h>
 
+// Mouse keys disabled for old ZMK compatibility
+// Define stubs BEFORE keymap so they're available when layers are expanded
+#include "tipper_tf_mousekeys_stub.h"
+
 / {
   keymap {
     compatible = "zmk,keymap";
@@ -33,10 +37,6 @@ MIRYOKU_LAYER_LIST
 #include "../miryoku/miryoku_shift_functions.dtsi"
 
 #include "../miryoku/miryoku_double_tap_guard.dtsi"
-
-// Mouse keys disabled for old ZMK compatibility
-// Use stub definitions instead
-#include "tipper_tf_mousekeys_stub.h"
 
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
   #include "../miryoku/miryoku_kludge_thumbcombos.dtsi"
