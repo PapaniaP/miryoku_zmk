@@ -3,6 +3,20 @@
 //
 // Tipper TF compatibility version - adds 'label' property for old ZMK fork
 
+// Redefine U_MACRO to include label property for old ZMK compatibility
+#undef U_MACRO
+#define U_MACRO(name,...) \
+/ { \
+  macros { \
+    name: name { \
+      compatible = "zmk,behavior-macro"; \
+      label = #name; \
+      #binding-cells = <0>; \
+      __VA_ARGS__ \
+    }; \
+  }; \
+};
+
 #define MIRYOKU_SHIFT_FUNCTION(NAME, BINDING, SHIFT_BINDING) \
 / { \
   behaviors { \
