@@ -1,0 +1,13 @@
+# Copyright 2025 Manna Harbour
+# https://github.com/manna-harbour/miryoku
+
+name: 'Build Example Tipper TF with ZMK Studio'
+on: workflow_dispatch
+jobs:
+  build:
+    uses: ./.github/workflows/main.yml
+    secrets: inherit
+    with:
+      board: '["tipper_tf"]'
+      snippet: '["studio-rpc-usb-uart"]'
+      kconfig: '["CONFIG_ZMK_STUDIO=y"]'
