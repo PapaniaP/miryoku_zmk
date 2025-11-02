@@ -1,6 +1,9 @@
 // Copyright 2021 Manna Harbour
 // https://github.com/manna-harbour/miryoku
+//
+// Tipper TF uses old ZMK fork (2023) for OLED support
+// Mouse layer disabled for compatibility - all other Miryoku layers work
 
 #include "../miryoku/custom_config.h"
 #include "../miryoku/mapping/34/ferris.h"
-#include "../miryoku/miryoku.dtsi"
+#include "tipper_tf_miryoku.dtsi"
