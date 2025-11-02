@@ -1,0 +1,13 @@
+# Copyright 2025 Manna Harbour
+# https://github.com/manna-harbour/miryoku
+
+name: 'Build Example Tipper TF'
+on: workflow_dispatch
+jobs:
+  build:
+    uses: ./.github/workflows/main.yml
+    secrets: inherit
+    with:
+      board: '["tipper_tf"]'
+      # Note: Tipper TF uses old ZMK fork (2023) for OLED support
+      # ZMK Studio and mouse features not available on this fork

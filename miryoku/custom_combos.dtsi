@@ -1,0 +1,18 @@
+// Copyright 2025
+// Custom combos for Miryoku
+
+/ {
+  combos {
+    compatible = "zmk,combos";
+
+    // Enter + Tab = Escape combo
+    // Works on all layers
+    // Positions 32 (Tab) + 33 (Enter) = Escape
+    combo_enter_tab_escape {
+      timeout-ms = <50>;  // Fast timeout for quick combo activation
+      key-positions = <32 33>;  // Right inner thumb (Tab) + Right outer thumb (Enter)
+      bindings = <&kp ESC>;
+      layers = <0 1 2 3 4 5 6 7 8 9>;  // Active on all layers
+    };
+  };
+};
