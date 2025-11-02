@@ -55,3 +55,6 @@ MIRYOKU_LAYER_LIST
 #else
   #include "../miryoku/miryoku_behaviors.dtsi"
 #endif
+
+// Custom user combos
+#include "../miryoku/custom_combos.dtsi"
