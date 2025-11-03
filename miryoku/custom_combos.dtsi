@@ -3,16 +3,17 @@
 
 // Enter + Tab = Escape combo
 // Works on all layers
-// Positions 32 (Tab) + 33 (Enter) = Escape
+// Position 34 = Tab (U_LT(U_MOUSE, TAB))
+// Position 35 = Enter (U_LT(U_SYM, RET))
 
 / {
     combos {
         // Note: compatible property already set by miryoku_kludge_thumbcombos.dtsi
         // Just add our custom combo definitions here
 
-        combo_enter_tab_escape {
+        combo_tab_enter_escape {
             timeout-ms = <50>;
-            key-positions = <32 33>;
+            key-positions = <34 35>;
             bindings = <&kp ESC>;
         };
     };
