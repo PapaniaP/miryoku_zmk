@@ -23,7 +23,8 @@
 // Default is 200ms, increasing to 250ms
 #define MIRYOKU_KLUDGE_THUMBCOMBOS_TERM 250
 
-// === CUSTOM COMBOS ===
+// === CUSTOM COMBOS & MACROS ===
 // Custom combos are defined in custom_combos.dtsi:
-// - Enter + Tab = Escape
+// - Tab + Enter = Escape
 // - S + E = F13 (Leader Key for LeaderKey.app)
+// - Space + Backspace = Hyperkey (Cmd+Ctrl+Shift+Alt for macOS shortcuts)

@@ -12,6 +12,11 @@
 // Positions: 12 (S on Colemak-DH home row) + 17 (E on Colemak-DH home row)
 // F13 is used because it's recognized by macOS but rarely used on keyboards
 
+// === Hyperkey Combo ===
+// Space + Backspace = Hyperkey (Cmd+Ctrl+Shift+Alt)
+// Positions: 33 (Space) + 36 (Backspace) - opposite corner thumbs
+// Perfect for global macOS shortcuts that won't conflict with apps
+
 / {
     combos {
         // Note: compatible property already set by miryoku_kludge_thumbcombos.dtsi
@@ -27,6 +32,12 @@
             timeout-ms = <50>;
             key-positions = <12 17>;
             bindings = <&kp F13>;
+        };
+
+        combo_hyperkey {
+            timeout-ms = <50>;
+            key-positions = <33 36>;
+            bindings = <&hyperkey>;
         };
     };
 };
