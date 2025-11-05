@@ -65,6 +65,10 @@ on:
         description: 'modules'
         required: false
         default: 'default'
+      snippet:
+        description: 'snippet (e.g., studio-rpc-usb-uart for ZMK Studio)'
+        required: false
+        default: 'default'
 jobs:
   process-inputs:
     runs-on: ubuntu-latest
@@ -79,6 +83,7 @@ jobs:
       kconfig: ${{ steps.process-inputs.outputs.kconfig }}
       branches: ${{ steps.process-inputs.outputs.branches }}
       modules: ${{ steps.process-inputs.outputs.modules }}
+      snippet: ${{ steps.process-inputs.outputs.snippet }}
     steps:
       - name: Process inputs
         id: process-inputs
@@ -98,6 +103,7 @@ jobs:
           set-output "kconfig" "${{ github.event.inputs.kconfig }}"
           set-output "branches" "${{ github.event.inputs.branches }}"
           set-output "modules" "${{ github.event.inputs.modules }}"
+          set-output "snippet" "${{ github.event.inputs.snippet }}"
   build:
     uses: ./.github/workflows/main.yml
     secrets: inherit
@@ -113,3 +119,4 @@ jobs:
       kconfig: ${{ needs.process-inputs.outputs.kconfig }}
       branches: ${{ needs.process-inputs.outputs.branches }}
       modules: ${{ needs.process-inputs.outputs.modules }}
+      snippet: ${{ needs.process-inputs.outputs.snippet }}
