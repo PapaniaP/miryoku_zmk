@@ -17,12 +17,18 @@
 // Mouse bindings removed - old ZMK fork doesn't have this file
 // #include <dt-bindings/zmk/mouse.h>
 
+// Mouse keys disabled for old ZMK compatibility
+// Define stubs BEFORE keymap so they're available when layers are expanded
+#include "tipper_tf_mousekeys_stub.h"
+
+// Custom user macros (hyperkey, etc.)
+#include "../miryoku/custom_macros.dtsi"
+
 / {
   keymap {
     compatible = "zmk,keymap";
 #define MIRYOKU_X(LAYER, STRING) \
     LAYER { \
-      display-name = STRING; \
       bindings = < U_MACRO_VA_ARGS(MIRYOKU_LAYERMAPPING_##LAYER, MIRYOKU_LAYER_##LAYER) >; \
     };
 MIRYOKU_LAYER_LIST
@@ -30,13 +36,9 @@ MIRYOKU_LAYER_LIST
   };
 };
 
-#include "../miryoku/miryoku_shift_functions.dtsi"
-
-#include "../miryoku/miryoku_double_tap_guard.dtsi"
-
-// Mouse keys disabled for old ZMK compatibility
-// Use stub definitions instead
-#include "tipper_tf_mousekeys_stub.h"
+// Use Tipper TF compatible versions with 'label' property for old ZMK
+#include "tipper_tf_shift_functions.dtsi"
+#include "tipper_tf_double_tap_guard.dtsi"
 
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
   #include "../miryoku/miryoku_kludge_thumbcombos.dtsi"
@@ -53,7 +55,8 @@ MIRYOKU_LAYER_LIST
 #if defined (MIRYOKU_KLUDGE_TAPDELAY)
   #include "../miryoku/miryoku_kludge_tapdelay.dtsi"
 #else
-  #include "../miryoku/miryoku_behaviors.dtsi"
+  // Use Tipper TF compatible version with 'label' property for old ZMK
+  #include "tipper_tf_behaviors.dtsi"
 #endif
 
 // Custom user combos

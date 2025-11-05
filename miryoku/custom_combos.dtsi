@@ -1,18 +1,43 @@
 // Copyright 2025
 // Custom combos for Miryoku
 
-/ {
-  combos {
-    compatible = "zmk,combos";
+// === Thumb Key Combos ===
+// Tab + Enter = Escape
+// Position 34 = Tab (U_LT(U_MOUSE, TAB))
+// Position 35 = Enter (U_LT(U_SYM, RET))
+// Works on all layers
 
-    // Enter + Tab = Escape combo
-    // Works on all layers
-    // Positions 32 (Tab) + 33 (Enter) = Escape
-    combo_enter_tab_escape {
-      timeout-ms = <50>;  // Fast timeout for quick combo activation
-      key-positions = <32 33>;  // Right inner thumb (Tab) + Right outer thumb (Enter)
-      bindings = <&kp ESC>;
-      layers = <0 1 2 3 4 5 6 7 8 9>;  // Active on all layers
+// === "Akimbo" Leader Key Combo ===
+// S + E = F13 (Leader Key for LeaderKey.app)
+// Positions: 12 (S on Colemak-DH home row) + 17 (E on Colemak-DH home row)
+// F13 is used because it's recognized by macOS but rarely used on keyboards
+
+// === Hyperkey Combo ===
+// Space + Backspace = Hyperkey (Cmd+Ctrl+Shift+Alt)
+// Positions: 33 (Space) + 36 (Backspace) - opposite corner thumbs
+// Perfect for global macOS shortcuts that won't conflict with apps
+
+/ {
+    combos {
+        // Note: compatible property already set by miryoku_kludge_thumbcombos.dtsi
+        // Just add our custom combo definitions here
+
+        combo_tab_enter_escape {
+            timeout-ms = <250>;
+            key-positions = <34 35>;
+            bindings = <&kp ESC>;
+        };
+
+        combo_akimbo_leader {
+            timeout-ms = <50>;
+            key-positions = <12 17>;
+            bindings = <&kp F13>;
+        };
+
+        combo_hyperkey {
+            timeout-ms = <50>;
+            key-positions = <33 36>;
+            bindings = <&hyperkey>;
+        };
     };
-  };
 };
