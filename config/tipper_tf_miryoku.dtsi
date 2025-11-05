@@ -21,6 +21,9 @@
 // Define stubs BEFORE keymap so they're available when layers are expanded
 #include "tipper_tf_mousekeys_stub.h"
 
+// Custom user macros (hyperkey, etc.)
+#include "../miryoku/custom_macros.dtsi"
+
 / {
   keymap {
     compatible = "zmk,keymap";
