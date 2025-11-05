@@ -17,9 +17,6 @@
 
 #include <dt-bindings/zmk/mouse.h>
 
-// Custom user macros (hyperkey, etc.)
-#include "custom_macros.dtsi"
-
 / {
   keymap {
     compatible = "zmk,keymap";
@@ -60,6 +57,3 @@ MIRYOKU_LAYER_LIST
 #else
   #include "miryoku_behaviors.dtsi"
 #endif
-
-// Custom user combos
-#include "custom_combos.dtsi"
