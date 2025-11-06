@@ -1,9 +1,6 @@
 // Copyright 2021 Manna Harbour
 // https://github.com/manna-harbour/miryoku
 
-// === CUSTOM COMBOS ===
-// Custom combos:
-// - Tab + Enter = Escape
-// - S + E = F13 (Leader Key for LeaderKey.app)
-// - Space + Backspace = Caps Lock (remap to Hyper at OS level)
-#include "custom_combos.dtsi"
+// === CUSTOM CONFIGURATION ===
+// This file is for C preprocessor defines only (e.g., #define MIRYOKU_...)
+// Custom combos are included via devicetree in each keyboard's config file
