@@ -10,7 +10,7 @@ jobs:
     with:
       board: '["nice_nano_v2","nice_nano_v2"]'
       shield: '["cradio_left","cradio_right"]'
-      snippet: '["studio-rpc-usb-uart","default"]'
-      nav: '["invertedt","invertedt"]'
+      nav: '["invertedt"]'
+      clipboard: '["mac"]'
       # Note: ZMK Studio snippet only applied to left (central) side
       # Battery levels for both halves will be reported via BLE

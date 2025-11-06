@@ -13,9 +13,9 @@
 // F13 is used because it's recognized by macOS but rarely used on keyboards
 
 // === Hyperkey Combo ===
-// Space + Backspace = Hyperkey (Cmd+Ctrl+Shift+Alt)
+// Space + Backspace = Caps Lock (remapped to Hyper at OS level)
 // Positions: 33 (Space) + 36 (Backspace) - opposite corner thumbs
-// Perfect for global macOS shortcuts that won't conflict with apps
+// Use Caps Lock as your hyperkey modifier for global shortcuts
 
 / {
     combos {
@@ -25,7 +25,7 @@
         combo_tab_enter_escape {
             timeout-ms = <250>;
             key-positions = <34 35>;
-            bindings = <&kp ESC>;
+            bindings = <&kp ESCAPE>;
         };
 
         combo_akimbo_leader {
@@ -37,7 +37,7 @@
         combo_hyperkey {
             timeout-ms = <50>;
             key-positions = <33 36>;
-            bindings = <&hyperkey>;
+            bindings = <&kp CAPS>;
         };
     };
 };
