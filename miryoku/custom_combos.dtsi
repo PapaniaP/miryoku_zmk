@@ -25,7 +25,7 @@
         combo_tab_enter_escape {
             timeout-ms = <250>;
             key-positions = <34 35>;
-            bindings = <&kp ESC>;
+            bindings = <&kp ESCAPE>;
         };
 
         combo_akimbo_leader {
@@ -37,7 +37,7 @@
         combo_hyperkey {
             timeout-ms = <50>;
             key-positions = <33 36>;
-            bindings = <&kp CAPSLOCK>;
+            bindings = <&kp CAPS>;
         };
     };
 };
