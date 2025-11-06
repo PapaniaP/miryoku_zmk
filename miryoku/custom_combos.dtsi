@@ -37,7 +37,7 @@
         combo_hyperkey {
             timeout-ms = <50>;
             key-positions = <33 36>;
-            bindings = <&kp CAPS>;
+            bindings = <&kp CAPSLOCK>;
         };
     };
 };
