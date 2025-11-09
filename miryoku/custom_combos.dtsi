@@ -22,9 +22,10 @@
 
         // EXAMPLE — ESC when positions 34 + 35 are pressed together
         combo_tab_enter_escape {
-            timeout-ms = <250>;
+            timeout-ms = <500>;
             key-positions = <34 35>;
             bindings = <&kp ESC>;
+            slow-release;
         };
 
         // EXAMPLE — F13 (leader) at positions 12 + 17
