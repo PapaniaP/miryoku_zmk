@@ -5,17 +5,6 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
-    macros {
-        // Hyper key as one-shot modifiers (Cmd+Shift+Alt+Ctrl)
-        hyper_oneshot: hyper_oneshot {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press &kp LGUI &kp LSHFT &kp LALT &kp LCTRL>
-                     , <&macro_pause_for_release>
-                     , <&macro_release &kp LGUI &kp LSHFT &kp LALT &kp LCTRL>;
-        };
-    };
-
     combos {
         compatible = "zmk,combos";
 
@@ -33,11 +22,11 @@
             bindings = <&kp F13>;
         };
 
-        // 33 + 36 → Hyper key (holds all modifiers while combo is held)
-        combo_hyper_oneshot {
+        // 33 + 36 → Sticky CAPS (for Hyper key at OS level)
+        combo_hyperkey {
             timeout-ms = <40>;
             key-positions = <33 36>;
-            bindings = <&hyper_oneshot>;
+            bindings = <&sk CAPS>;
         };
     };
 };
