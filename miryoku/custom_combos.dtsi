@@ -29,14 +29,14 @@
 
         // EXAMPLE — F13 (leader) at positions 12 + 17
         combo_akimbo_leader {
-            timeout-ms = <50>;
+            timeout-ms = <150>;
             key-positions = <12 17>;
             bindings = <&kp F13>;
         };
 
         // 33 + 36 → Hyper key (Shift+Alt+Ctrl+Cmd)
         combo_hyperkey {
-            timeout-ms = <40>;
+            timeout-ms = <150>;
             key-positions = <33 36>;
             bindings = <&macro_hyperkey>;
         };
