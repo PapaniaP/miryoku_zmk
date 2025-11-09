@@ -22,9 +22,10 @@
 
         // EXAMPLE — ESC when positions 34 + 35 are pressed together
         combo_tab_enter_escape {
-            timeout-ms = <500>;
+            timeout-ms = <250>;
             key-positions = <34 35>;
             bindings = <&kp ESC>;
+            layers = <0>;
             slow-release;
         };
 
