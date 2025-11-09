@@ -1,39 +1,28 @@
-// Copyright 2025
-// Custom combos for Miryoku
+// miryoku/custom_combos.dtsi
+// Custom ZMK combos, Miryoku-style (split file).
+// Keep this minimal & clean; we’ll tune positions after a test build.
 
-// === Thumb Key Combos ===
-// Tab + Enter = Escape
-// Position 34 = Tab (U_LT(U_MOUSE, TAB))
-// Position 35 = Enter (U_LT(U_SYM, RET))
-// Works on all layers
-
-// === "Akimbo" Leader Key Combo ===
-// S + E = F13 (Leader Key for LeaderKey.app)
-// Positions: 12 (S on Colemak-DH home row) + 17 (E on Colemak-DH home row)
-// F13 is used because it's recognized by macOS but rarely used on keyboards
-
-// === Hyperkey Combo ===
-// Space + Backspace = Caps Lock (remapped to Hyper at OS level)
-// Positions: 33 (Space) + 36 (Backspace) - opposite corner thumbs
-// Use Caps Lock as your hyperkey modifier for global shortcuts
+#include <dt-bindings/zmk/keys.h>
 
 / {
     combos {
-        // Note: compatible property already set by miryoku_kludge_thumbcombos.dtsi
-        // Just add our custom combo definitions here
+        compatible = "zmk,combos";
 
+        // EXAMPLE — ESC when positions 34 + 35 are pressed together
         combo_tab_enter_escape {
             timeout-ms = <250>;
             key-positions = <34 35>;
-            bindings = <&kp ESCAPE>;
+            bindings = <&kp ESC>;
         };
 
+        // EXAMPLE — F13 (leader) at positions 12 + 17
         combo_akimbo_leader {
             timeout-ms = <50>;
             key-positions = <12 17>;
             bindings = <&kp F13>;
         };
 
+        // EXAMPLE — Caps Lock at positions 33 + 36
         combo_hyperkey {
             timeout-ms = <50>;
             key-positions = <33 36>;
