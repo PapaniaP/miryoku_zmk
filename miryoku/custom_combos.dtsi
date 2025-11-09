@@ -5,6 +5,18 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    macros {
+        macro_hyperkey: macro_hyperkey {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LSHFT &kp LALT &kp LCTRL &kp LGUI>,
+                <&macro_pause_for_release>,
+                <&macro_release &kp LSHFT &kp LALT &kp LCTRL &kp LGUI>;
+            label = "MACRO_HYPERKEY";
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -22,11 +34,11 @@
             bindings = <&kp F13>;
         };
 
-        // 33 + 36 → Sticky CAPS (for Hyper key at OS level)
+        // 33 + 36 → Hyper key (Shift+Alt+Ctrl+Cmd)
         combo_hyperkey {
             timeout-ms = <40>;
             key-positions = <33 36>;
-            bindings = <&sk CAPS>;
+            bindings = <&macro_hyperkey>;
         };
     };
 };
