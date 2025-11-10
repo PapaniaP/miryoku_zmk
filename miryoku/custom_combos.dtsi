@@ -20,25 +20,27 @@
     combos {
         compatible = "zmk,combos";
 
-        // EXAMPLE — ESC when positions 34 + 35 are pressed together
+        // ESC when positions 34 + 35 are pressed together (Enter + Tab)
         combo_tab_enter_escape {
-            timeout-ms = <250>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <100>;
             key-positions = <34 35>;
             bindings = <&kp ESC>;
             layers = <0>;
-            slow-release;
         };
 
-        // EXAMPLE — F13 (leader) at positions 12 + 17
+        // F13 (leader) at positions 12 + 17
         combo_akimbo_leader {
-            timeout-ms = <150>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <100>;
             key-positions = <12 17>;
             bindings = <&kp F13>;
         };
 
-        // 33 + 36 → Hyper key (Shift+Alt+Ctrl+Cmd)
+        // Hyper key (Shift+Alt+Ctrl+Cmd) at positions 33 + 36 (Backspace + Space)
         combo_hyperkey {
-            timeout-ms = <150>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <100>;
             key-positions = <33 36>;
             bindings = <&macro_hyperkey>;
         };
