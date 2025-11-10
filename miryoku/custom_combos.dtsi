@@ -20,11 +20,11 @@
     combos {
         compatible = "zmk,combos";
 
-        // ESC when positions 34 + 35 are pressed together (Enter + Tab)
+        // ESC when Enter + Tab pressed together
         combo_tab_enter_escape {
             timeout-ms = <50>;
             require-prior-idle-ms = <100>;
-            key-positions = <34 35>;
+            key-positions = <31 32>;
             bindings = <&kp ESC>;
             layers = <0>;
         };
@@ -37,11 +37,11 @@
             bindings = <&kp F13>;
         };
 
-        // Hyper key (Shift+Alt+Ctrl+Cmd) at positions 33 + 36 (Backspace + Space)
+        // Hyper key (Shift+Alt+Ctrl+Cmd) when Backspace + Space pressed together
         combo_hyperkey {
             timeout-ms = <50>;
             require-prior-idle-ms = <100>;
-            key-positions = <33 36>;
+            key-positions = <30 33>;
             bindings = <&macro_hyperkey>;
         };
     };
