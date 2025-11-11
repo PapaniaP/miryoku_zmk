@@ -20,26 +20,27 @@
     combos {
         compatible = "zmk,combos";
 
-        // ESC on left thumb combo (Backspace + Enter)
-        // Same positions as kludge LEFT combo
-        combo_left_thumb_escape {
-            timeout-ms = <250>;
-            key-positions = <30 31>;
+        // ESC: G + M (cross-hand, inner home row)
+        combo_escape {
+            timeout-ms = <100>;
+            require-prior-idle-ms = <150>;
+            key-positions = <14 15>;
             bindings = <&kp ESC>;
         };
 
-        // Hyper on right thumb combo (Tab + Space)
-        // Same positions as kludge RIGHT combo
-        combo_right_thumb_hyperkey {
-            timeout-ms = <250>;
-            key-positions = <32 33>;
+        // Hyper: F + U (cross-hand, top row)
+        combo_hyperkey {
+            timeout-ms = <100>;
+            require-prior-idle-ms = <150>;
+            key-positions = <2 7>;
             bindings = <&macro_hyperkey>;
         };
 
-        // F13 (leader) at positions 12 + 17
-        combo_akimbo_leader {
-            timeout-ms = <250>;
-            key-positions = <12 17>;
+        // F13 Leader: D + H (cross-hand, bottom row)
+        combo_leader {
+            timeout-ms = <100>;
+            require-prior-idle-ms = <150>;
+            key-positions = <23 26>;
             bindings = <&kp F13>;
         };
     };
