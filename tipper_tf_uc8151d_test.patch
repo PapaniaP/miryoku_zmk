@@ -1,0 +1,75 @@
+From 9185248afd1cc3173fe1a0f79fd239f6021eff79 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Wed, 12 Nov 2025 10:07:31 +0000
+Subject: [PATCH] Test UC8151D driver as alternative to JD79653
+
+UC8151D might be an old revision of JD79653A with 90% same registers.
+Testing if Zephyr's native UC8151D driver will work with GDEW0154M09.
+
+Changes:
+- Commented out original JD79653 config (easy to revert)
+- Added UC8151D configuration with Zephyr-compatible properties
+- Used default UC8151D power/timing settings as starting point
+
+If this works, we can use modern ZMK with native display support!
+---
+ boards/arm/tipper_tf/tipper_tf.dts | 30 ++++++++++++++++++++++++++++--
+ 1 file changed, 28 insertions(+), 2 deletions(-)
+
+diff --git a/boards/arm/tipper_tf/tipper_tf.dts b/boards/arm/tipper_tf/tipper_tf.dts
+index 2426c26..fc7a7a0 100644
+--- a/boards/arm/tipper_tf/tipper_tf.dts
++++ b/boards/arm/tipper_tf/tipper_tf.dts
+@@ -92,6 +92,11 @@
+     /* cs-gpios = <&gpio0 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; */
+     cs-gpios = <&gpio0 4 GPIO_ACTIVE_LOW>;
+ 
++    /* ORIGINAL JD79653 CONFIG - Commented out to test UC8151D driver
++     * UC8151D might be an old revision of JD79653A with 90% same registers
++     * Testing if Zephyr's UC8151D driver will work with our GDEW0154M09 display
++     */
++    /*
+     epd0: jd79653@0 {
+         compatible = "gooddisplay,jd79653";
+         label = "DISPLAY";
+@@ -101,14 +106,35 @@
+         width  = <200>;
+         dc-gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;
+         reset-gpios = <&gpio1 13 GPIO_ACTIVE_LOW>;
+-        /* busy-gpios = <&gpio1 15 GPIO_ACTIVE_LOW>; */
+         busy-gpios = <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+-        /* pwr = [03 06 29 29]; */
+         pwr = [03 0a 39 39 06]; //std Values
+         tcon = <0x22>;
+         cdi  = <0x07>;
+         vcom-dc = <0x00>;
+     };
++    */
++
++    /* TESTING UC8151D DRIVER - Zephyr has native support for this chip
++     * If this works, we can use modern ZMK with display support!
++     * To revert: uncomment above block, comment out this block
++     */
++    epd0: uc8151d@0 {
++        compatible = "ultrachip,uc8151d";
++        label = "DISPLAY";
++        spi-max-frequency = <4000000>;
++        reg = <0>;
++        height = <200>;
++        width  = <200>;
++        dc-gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;
++        reset-gpios = <&gpio1 13 GPIO_ACTIVE_LOW>;
++        busy-gpios = <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
++
++        /* UC8151D-specific properties - may need adjustment */
++        pwr = [03 00 2b 2b];  // Default UC8151D power settings
++        softstart = [17 17 17];  // Booster soft start
++        cdi = <0xd2>;  // VCOM and data interval
++        tcon = <0x22>;  // Temperature sensor control
++    };
+ };
+ 
+ &usbd {
+-- 
+2.43.0
+
