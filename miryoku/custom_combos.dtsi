@@ -5,6 +5,17 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    behaviors {
+        ht_caps: hold_tap_caps {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            label = "HOLD_TAP_CAPS";
+        };
+    };
+
     macros {
         macro_hyperkey: macro_hyperkey {
             compatible = "zmk,behavior-macro";
