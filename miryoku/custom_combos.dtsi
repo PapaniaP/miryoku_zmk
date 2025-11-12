@@ -5,42 +5,51 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    behaviors {
+        ht_caps: hold_tap_caps {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            label = "HOLD_TAP_CAPS";
+        };
+    };
+
     macros {
         macro_hyperkey: macro_hyperkey {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press &kp LSHFT &kp LALT &kp LCTRL &kp LGUI>,
-                <&macro_pause_for_release>,
-                <&macro_release &kp LSHFT &kp LALT &kp LCTRL &kp LGUI>;
-            label = "MACRO_HYPERKEY";
+            bindings = <&sk LSHFT &sk LCTRL &sk LALT &sk LGUI>;
+            label = "MACRO_HYPERKEY_ONESHOT";
         };
     };
 
     combos {
         compatible = "zmk,combos";
 
-        // EXAMPLE — ESC when positions 34 + 35 are pressed together
-        combo_tab_enter_escape {
-            timeout-ms = <250>;
-            key-positions = <34 35>;
+        // ESC: G + M (cross-hand, inner home row)
+        combo_escape {
+            timeout-ms = <100>;
+            require-prior-idle-ms = <150>;
+            key-positions = <14 15>;
             bindings = <&kp ESC>;
-            layers = <0>;
-            slow-release;
         };
 
-        // EXAMPLE — F13 (leader) at positions 12 + 17
-        combo_akimbo_leader {
-            timeout-ms = <150>;
-            key-positions = <12 17>;
-            bindings = <&kp F13>;
-        };
-
-        // 33 + 36 → Hyper key (Shift+Alt+Ctrl+Cmd)
+        // Hyper: Z + / (cross-hand, bottom row corners, one-shot)
         combo_hyperkey {
-            timeout-ms = <150>;
-            key-positions = <33 36>;
+            timeout-ms = <100>;
+            require-prior-idle-ms = <150>;
+            key-positions = <20 29>;
             bindings = <&macro_hyperkey>;
+        };
+
+        // F13 Leader: D + H (cross-hand, bottom row)
+        combo_leader {
+            timeout-ms = <100>;
+            require-prior-idle-ms = <150>;
+            key-positions = <23 26>;
+            bindings = <&kp F13>;
         };
     };
 };
