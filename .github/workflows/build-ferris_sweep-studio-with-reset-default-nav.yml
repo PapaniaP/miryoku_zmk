@@ -1,0 +1,17 @@
+# Copyright 2025 Manna Harbour
+# https://github.com/manna-harbour/miryoku
+
+name: 'Build Ferris Sweep with ZMK Studio + Reset (Default Nav)'
+on: workflow_dispatch
+jobs:
+  build:
+    uses: ./.github/workflows/main.yml
+    secrets: inherit
+    with:
+      board: '["nice_nano_v2"]'
+      shield: '["cradio_left","cradio_right","settings_reset"]'
+      clipboard: '["mac"]'
+      # Note: ZMK Studio snippet only applied to left (central) side
+      # Battery levels for both halves will be reported via BLE
+      # settings_reset included for Bluetooth device name changes
+      # Using default nav layout (not inverted-T)
