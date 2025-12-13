@@ -9,6 +9,6 @@ jobs:
     secrets: inherit
     with:
       board: '["tipper_tf"]'
-      nav: '["invertedt"]'
+      nav: '["default"]'
       # Note: Tipper TF uses old ZMK fork (2023) for OLED support
       # ZMK Studio and mouse features not available on this fork
