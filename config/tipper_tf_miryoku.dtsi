@@ -12,14 +12,14 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/ext_power.h>
 
-#include "../miryoku/miryoku.h"
-
 // Mouse bindings removed - old ZMK fork doesn't have this file
 // #include <dt-bindings/zmk/mouse.h>
 
 // Mouse keys disabled for old ZMK compatibility
-// Define stubs BEFORE keymap so they're available when layers are expanded
+// Define stubs BEFORE including miryoku.h to prevent redefinition errors
 #include "tipper_tf_mousekeys_stub.h"
+
+#include "../miryoku/miryoku.h"
 
 / {
   keymap {
