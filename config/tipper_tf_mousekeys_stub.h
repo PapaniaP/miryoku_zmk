@@ -1,6 +1,6 @@
 // Copyright 2025
-// Stub mouse key definitions for Tipper TF (old ZMK fork compatibility)
-// Mouse layer will not function, but build will succeed
+// Stub definitions for Tipper TF (old ZMK fork compatibility)
+// Mouse layer and ZMK Studio will not function, but build will succeed
 
 #pragma once
 
@@ -18,3 +18,6 @@
 #define U_WH_L &none
 #define U_WH_R &none
 #define U_WH_U &none
+
+// Stub for ZMK Studio (not available in old fork)
+#define studio_unlock &none
