@@ -29,9 +29,9 @@
         compatible = "zmk,combos";
 
         // ESC: G + M (cross-hand, inner home row)
+        // Note: Old ZMK fork doesn't support require-prior-idle-ms
         combo_escape {
             timeout-ms = <100>;
-            require-prior-idle-ms = <150>;
             key-positions = <14 15>;
             bindings = <&kp ESC>;
         };
@@ -39,7 +39,6 @@
         // Hyper: Z + / (cross-hand, bottom row corners, one-shot)
         combo_hyperkey {
             timeout-ms = <100>;
-            require-prior-idle-ms = <150>;
             key-positions = <20 29>;
             bindings = <&macro_hyperkey>;
         };
@@ -47,7 +46,6 @@
         // F13 Leader: D + H (cross-hand, bottom row)
         combo_leader {
             timeout-ms = <100>;
-            require-prior-idle-ms = <150>;
             key-positions = <23 26>;
             bindings = <&kp F13>;
         };
@@ -55,7 +53,6 @@
         // F19 Dictation: C + , (cross-hand, home/bottom row)
         combo_dictation {
             timeout-ms = <100>;
-            require-prior-idle-ms = <150>;
             key-positions = <22 27>;
             bindings = <&kp F19>;
         };
