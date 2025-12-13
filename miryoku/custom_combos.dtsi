@@ -1,20 +1,63 @@
-// Copyright 2025
-// Custom combos for Miryoku
+// miryoku/custom_combos.dtsi
+// Custom ZMK combos, Miryoku-style (split file).
+// Keep this minimal & clean; we'll tune positions after a test build.
 
-// Enter + Tab = Escape combo
-// Works on all layers
-// Position 34 = Tab (U_LT(U_MOUSE, TAB))
-// Position 35 = Enter (U_LT(U_SYM, RET))
+#include <dt-bindings/zmk/keys.h>
 
 / {
-    combos {
-        // Note: compatible property already set by miryoku_kludge_thumbcombos.dtsi
-        // Just add our custom combo definitions here
+    behaviors {
+        ht_caps: hold_tap_caps {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            label = "HOLD_TAP_CAPS";
+        };
+    };
 
-        combo_tab_enter_escape {
-            timeout-ms = <250>;
-            key-positions = <34 35>;
+    macros {
+        macro_hyperkey: macro_hyperkey {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&sk LSHFT &sk LCTRL &sk LALT &sk LGUI>;
+            label = "MACRO_HYPERKEY_ONESHOT";
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        // ESC: G + M (cross-hand, inner home row)
+        combo_escape {
+            timeout-ms = <100>;
+            require-prior-idle-ms = <150>;
+            key-positions = <14 15>;
             bindings = <&kp ESC>;
+        };
+
+        // Hyper: Z + / (cross-hand, bottom row corners, one-shot)
+        combo_hyperkey {
+            timeout-ms = <100>;
+            require-prior-idle-ms = <150>;
+            key-positions = <20 29>;
+            bindings = <&macro_hyperkey>;
+        };
+
+        // F13 Leader: D + H (cross-hand, bottom row)
+        combo_leader {
+            timeout-ms = <100>;
+            require-prior-idle-ms = <150>;
+            key-positions = <23 26>;
+            bindings = <&kp F13>;
+        };
+
+        // F19 Dictation: C + , (cross-hand, home/bottom row)
+        combo_dictation {
+            timeout-ms = <100>;
+            require-prior-idle-ms = <150>;
+            key-positions = <22 27>;
+            bindings = <&kp F19>;
         };
     };
 };
